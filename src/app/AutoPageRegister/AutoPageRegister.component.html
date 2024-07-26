@@ -1,0 +1,57 @@
+<form [formGroup]="formular">
+  <div class="row">
+    <div class="col-12">
+
+      <div class="mb-3">
+        <label class="form-label">Code</label>
+        <input type="text" class="form-control"formControlName="code">
+        <span class="text-danger" *ngIf="formular.controls['code'].errors?.['required']">Required Value</span> <br>
+        <span class="text-danger" *ngIf="formular.controls['code'].errors?.['required']">Just accept digits</span>
+              </div>
+
+                      <div class="mb-3">
+                        <label class="form-label">Brand</label>
+                        <input type="text" class="form-control"formControlName="Brand">
+                              </div>
+ nb 
+                              <div class="mb-3">
+                                <label class="form-label">Model</label>
+                                <input type="text" class="form-control"formControlName="Model">
+                                      </div>
+
+                                      <div class="mb-3">
+                                        <label class="form-label">Year</label>
+                                        <input type="text" class="form-control"formControlName="Year">
+                                              </div>
+
+                                              <div class="mb-3">
+                                                <label class="form-label">Color</label>
+                                                <input type="text" class="form-control"formControlName="Color">
+                                                      </div>
+
+                                                      <div class="mb-3">
+                                                        <label class="form-label">Km</label>
+                                                        <input type="text" class="form-control"formArrayName="Km">
+                                                              </div>
+
+                                                              <div class="mb-3">
+                                                                <label class="form-label">Price</label>
+                                                                <input type="text" class="form-control"formControlName="Price">
+                                                                      </div>
+
+                                                                      <div class="mb-3">
+                                                                        <label class="form-label">Rating</label>
+                                                                        <input type="text" class="form-control"formControlName="Rating">
+                                                                              </div>
+
+    </div>
+  </div>
+</form>
+
+<div class="row">
+  <div class="col-3">
+    <button class="btn-btn-info"(click)="save()">
+Save
+    </button>
+  </div>
+</div>

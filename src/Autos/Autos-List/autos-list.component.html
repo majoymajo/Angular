@@ -1,0 +1,67 @@
+<div class="container">
+    <div class="card">
+        <div class="card-header">
+            <h1>Majo's Autos-List</h1>
+        </div>
+        <div class="card-body">
+            <div class="row mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Filter:</label>
+                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Brand"
+                       [(ngModel)]="filtro">
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    Filtered by: {{ filtro }}
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-2">
+                    <a [routerLink]="['/auto']" class="btn btn-info">New</a>
+                </div>
+
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>
+                                    <button class="btn btn-primary" (click)="toggleImage()">
+                                        {{ ShowImage ? "Hide" : "Show" }}
+                                    </button>
+                                </th>
+                                <th class="text-center fs-5">Code</th>
+                                <th class="text-center fs-5">Brand</th>
+                                <th class="text-center fs-5">Model</th>
+                                <th class="text-center fs-5">Year</th>
+                                <th class="text-center fs-5">Color</th>
+                                <th class="text-center fs-5">Km</th>
+                                <th class="text-center fs-5">Price</th>
+                                <th class="text-center fs-5">Rating</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let auto of Autosarray | async">
+                                <td>
+                                    <img src="https://th.bing.com/th/id/OIP.Lj_JNYOdC1UGIp6rHRGQvwHaE7?rs=1&pid=ImgDetMain"
+                                         *ngIf="ShowImage" style="max-height: 100px; max-width: 100px;">
+                                </td>
+                                <td>
+                                    <a [routerLink]="['/autos-list/' + auto.code]"> </a>
+                                    {{ auto.Code }}
+                                </td>
+
+                                <td class="text-center fs-5">{{ auto.Brand }}</td>
+                                <td class="text-center fs-5">{{ auto.Model }}</td>
+                                <td class="text-center fs-5">{{ auto.Year }}</td>
+                                <td class="text-center fs-5">{{ auto.Color }}</td>
+                                <td class="text-center fs-5">{{ auto.Km | number }}</td>
+                                <td class="text-center fs-5">{{ auto.Price | currency }}</td>
+                                <td class="text-center fs-5">{{ auto.Rating }} <i class="bi bi-star"></i></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
